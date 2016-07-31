@@ -49,6 +49,7 @@
     <h1>Parse CSS and Convert to PHP Array</h1>
 
     <p>for convert icon font css to php array like flaticon / fontawesome etc.</p>
+    <p><small><a href="https://github.com/EmranAhmed/vue-generate-php-font-array">Github</a></small></p>
 
     <label>
         <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="" value="flaticon-"> Flat Icon
@@ -61,7 +62,10 @@
     </label>
     <textarea v-model="css" cols="30" placeholder="Paste Icons CSS" rows="10"></textarea>
     <textarea v-show="php" readonly v-model="php" cols="30" rows="10"></textarea>
+
+
 </div>
+
 
 <script src="vue.min.js"></script>
 <script src="script.js"></script>
