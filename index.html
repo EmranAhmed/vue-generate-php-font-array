@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Icon File Extract by VueJS</title>
+
+    <style type="text/css">
+        #app {
+            margin : 8% auto;
+            width  : 600px;
+            }
+
+        input {
+            display  : inline-block;
+            padding  : 10px;
+            margin   : 10px 0;
+            position : relative;
+            }
+
+        textarea {
+            display  : inline-block;
+            width    : 95%;
+            padding  : 10px;
+            margin   : 10px 0;
+            position : relative;
+
+            }
+
+        [v-cloak] {
+            display : none;
+            }
+
+        label {
+            text-align : left;
+            display    : inline-block;
+            padding    : 10px;
+            }
+
+        span {
+            display   : inline-block;
+            font-size : 12px;
+            }
+    </style>
+</head>
+<body>
+
+<div id="app" v-cloak>
+
+    <h1>Parse CSS and Convert to PHP Array</h1>
+
+    <p>for convert icon font css to php array like flaticon / fontawesome etc.</p>
+
+    <label>
+        <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="" value="flaticon-"> Flat Icon
+    </label>
+    <label>
+        <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="fa" value="fa-"> FontAwesome
+    </label>
+    <label>
+        <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="mdi" value="mdi-"> Material Design Icon
+    </label>
+    <textarea v-model="css" cols="30" placeholder="Paste Icons CSS" rows="10"></textarea>
+    <textarea v-show="php" readonly v-model="php" cols="30" rows="10"></textarea>
+</div>
+
+<script src="vue.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
