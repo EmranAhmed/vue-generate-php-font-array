@@ -40,6 +40,11 @@
             display   : inline-block;
             font-size : 12px;
             }
+        small {
+
+            margin: 0 10px;
+
+        }    
     </style>
 </head>
 <body>
@@ -49,7 +54,15 @@
     <h1>Parse CSS and Convert to PHP Array</h1>
 
     <p>for convert icon font css to php array like flaticon / fontawesome etc.</p>
-    <p><small><a href="https://github.com/EmranAhmed/vue-generate-php-font-array">Github</a></small></p>
+    <p>
+        <small><a target="_blank" href="https://github.com/EmranAhmed/vue-generate-php-font-array">Github</a></small>
+        
+        <small><a target="_blank" href="https://cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">Material Design Icons</a></small>
+
+        <small><a target="_blank" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">FontAwesome</a></small>
+
+        <small><a target="_blank" href="http://www.flaticon.com/">FlatIcon</a></small>
+    </p>
 
     <label>
         <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="" value="flaticon-"> Flat Icon
@@ -60,7 +73,7 @@
     <label>
         <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="mdi" value="mdi-"> Material Design Icon
     </label>
-    <textarea v-model="css" cols="30" placeholder="Paste Icons CSS" rows="10"></textarea>
+    <textarea v-model="css" cols="30" placeholder="Paste CSS Contents" rows="10"></textarea>
     <textarea v-show="php" readonly v-model="php" cols="30" rows="10"></textarea>
 
 
