@@ -25,11 +25,14 @@ new Vue({
 
             var match,
                 phpcode  = [],
-                $pattern = '.(' + prefix + '([^:|^"]+)):before',
+                $pattern = `.(${prefix}([^:|^"]+)):before`,
                 $regexp  = new RegExp($pattern, "ig");
 
             while ((match = $regexp.exec(css)) !== null) {
-                phpcode.push(`\t'${before} ${match[1]}'=>'${match[2]}'`);
+                if (match[1].indexOf(".") == -1 || match[1].indexOf(",") == -1) {
+                    let name = match[2].replace(/-/g, ' ').replace(/(\b\w)/gi, function (m) {return m.toUpperCase();});
+                    phpcode.push(`\t'${before} ${match[1]}'=>'${name}'`);
+                }
             }
             return `<?php \nreturn array(\n${phpcode.join(",\n")}\n);`;
         }
