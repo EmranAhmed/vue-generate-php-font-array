@@ -23,6 +23,7 @@ new Vue({
         generatePHP : function (prefix, css, before) {
 
             var match,
+
                 phpcode   = [],
                 $comments = /\/\*(?:(?!\*\/)[\s\S])*\*\//g,
                 $pattern  = `.(${prefix}([^:|^"]+)):before`,
