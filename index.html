@@ -40,11 +40,12 @@
             display   : inline-block;
             font-size : 12px;
             }
+
         small {
 
-            margin: 0 10px;
+            margin : 0 10px;
 
-        }    
+            }
     </style>
 </head>
 <body>
@@ -56,12 +57,14 @@
     <p>for convert icon font css to php array like flaticon / fontawesome etc.</p>
     <p>
         <small><a target="_blank" href="https://github.com/EmranAhmed/vue-generate-php-font-array">Github</a></small>
-        
+
         <small><a target="_blank" href="https://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.css">Material Design Icons</a></small>
 
         <small><a target="_blank" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">FontAwesome</a></small>
 
         <small><a target="_blank" href="http://www.flaticon.com/">FlatIcon</a></small>
+
+        <small><a target="_blank" href="https://raw.githubusercontent.com/WordPress/dashicons/master/css/dashicons.css">DashIcons</a></small>
     </p>
 
     <label>
@@ -72,6 +75,9 @@
     </label>
     <label>
         <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="mdi" value="mdi-"> Material Design Icon
+    </label>
+    <label>
+        <input type="radio" v-model="prefix" @change="beforeClassPrefix" before="dashicons" value="dashicons-"> DashIcons
     </label>
     <textarea v-model="css" cols="30" placeholder="Paste CSS Contents" rows="10"></textarea>
     <textarea v-show="php" readonly v-model="php" cols="30" rows="10"></textarea>

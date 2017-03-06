@@ -3,7 +3,6 @@ new Vue({
     data : {
         prefix : '',
         css    : '',
-        php    : '',
         before : ''
     },
 
@@ -24,16 +23,27 @@ new Vue({
         generatePHP : function (prefix, css, before) {
 
             var match,
-                phpcode  = [],
-                $pattern = `.(${prefix}([^:|^"]+)):before`,
-                $regexp  = new RegExp($pattern, "ig");
+                phpcode   = [],
+                $comments = /\/\*(?:(?!\*\/)[\s\S])*\*\//g,
+                $pattern  = `.(${prefix}([^:|^"]+)):before`,
+                $regexp   = new RegExp($pattern, "ig");
+
+            css = css.replace($comments, '');
 
             while ((match = $regexp.exec(css)) !== null) {
                 if (match[1].indexOf(".") == -1 || match[1].indexOf(",") == -1) {
                     let name = match[2].replace(/-/g, ' ').replace(/(\b\w)/gi, function (m) {return m.toUpperCase();});
-                    phpcode.push(`\t'${before} ${match[1]}'=>'${name}'`);
+
+                    let icon = `${before} ${match[1]}`.trim();
+
+                    phpcode.push(`\t'${icon}'=>'${name}'`);
+
+                    if (before == 'dashicons' && match[1] == 'dashicons-before') {
+                        phpcode.shift();
+                    }
                 }
             }
+
             return `<?php \nreturn array(\n${phpcode.join(",\n")}\n);`;
         }
     }
